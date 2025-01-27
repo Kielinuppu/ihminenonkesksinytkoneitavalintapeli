@@ -4,6 +4,7 @@ const feedbackScreen = document.getElementById('feedback');
 const startButton = document.getElementById('start-button');
 const playAgainButton = document.getElementById('play-again-button');
 const gameBoard = document.querySelector('.game-board');
+const replayButton = document.getElementById('replay-sound');
 
 const fruits = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
 let currentFruit;
@@ -110,5 +111,11 @@ playAgainButton.addEventListener('click', resetGame);
 gameBoard.addEventListener('click', (e) => {
     if (e.target.classList.contains('fruit-button')) {
         checkAnswer(e.target.dataset.fruit);
+    }
+});
+
+replayButton.addEventListener('click', () => {
+    if (currentFruit) {
+        playFruitSound();
     }
 });
